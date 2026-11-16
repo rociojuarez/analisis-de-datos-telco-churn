@@ -27,7 +27,7 @@ En el sector de las telecomunicaciones, el costo de adquirir un nuevo cliente su
 - **Lenguaje:** Python 3
 - **Manipulación y Análisis:** Pandas, NumPy
 - **Visualización:** Matplotlib, Seaborn
-- **Machine Learning:** Scikit-Learn (`LinearRegression`, `LogisticRegression`, `train_test_split`, `StandardScaler`)
+- **Machine Learning:** Scikit-Learn (`LinearRegression`, `LogisticRegression`, `DecisionTreeClassifier`, `ColumnTransformer`, `OneHotEncoder`, `OrdinalEncoder`, `StandardScaler`, `train_test_split`)
 - **Entorno:** Google Colaboratory / Jupyter Notebook
 
 ## 📊 **Principales Hallazgos y Resultados**
@@ -36,9 +36,26 @@ En el sector de las telecomunicaciones, el costo de adquirir un nuevo cliente su
 - **Impacto del Contrato:** Los clientes con contrato **mes a mes (*Month-to-month*)** concentran la inmensa mayoría de las bajas, mientras que los contratos a 1 y 2 años presentan tasas de retención superiores al 88%.
 - **Antigüedad (*Tenure*):** El riesgo de fuga es crítico durante los **primeros 12 meses** de relación comercial; pasada esa barrera, la fidelidad aumenta sostenidamente.
 - **Desempeño de Modelos:**
-  - **Regresión Lineal (`TotalCharges`):** $R^2 = 0.8962$ | $\text{MAE} = \$588.62$.
-  - **Regresión Logística (`Churn`):** Exactitud (*Accuracy*) del **80,38%** sobre el conjunto de prueba, superando ampliamente la línea base de clase mayoritaria (73,46%).
+  - **Regresión Lineal (`TotalCharges`):** $R^2 = 0.6701$ | $\text{MAE} = \$892.38$.
+  - **Regresión Logística (`Churn`):** Exactitud (*Accuracy*) del **80,70%** sobre el conjunto de prueba, superando ampliamente la línea base de clase mayoritaria (73,46%).
 
+
+## 🗂️ Estructura del Repositorio
+
+```
+analisis-de-datos-telco-churn/
+├── data/
+│   ├── raw/                  # Dataset original de Kaggle, sin modificar
+│   └── processed/            # Dataset depurado (telco_churn_limpio.csv), generado por el notebook
+├── notebooks/
+│   └── TPI_Analisis_de_Datos.ipynb   # Análisis completo (limpieza, EDA y modelado)
+├── docs/
+│   └── INFORME_EJECUTIVO.pdf # Informe técnico-ejecutivo con carátula
+├── requirements.txt          # Dependencias para ejecución local
+└── README.md
+```
+
+**Cómo explorar el proyecto:** abrir el notebook y recorrerlo en orden. La *Parte 1* cubre fundamentos, ingesta y limpieza; la *Parte 2*, manipulación con Pandas y la exportación a `data/processed`; la *Parte 2B*, el análisis exploratorio y los gráficos; la *Parte 3*, el preprocesamiento y los modelos. El informe resume la metodología y las conclusiones de negocio.
 
 ## 🚀 Guía Rápida de Ejecución
 Ejecución inmediata en la nube (Recomendado): Hacer clic en el botón Open in Colab al inicio de este documento. El notebook descarga automáticamente los datasets desde la rama main de este repositorio sin requerir configuración manual.
